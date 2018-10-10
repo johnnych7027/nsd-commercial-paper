@@ -10,15 +10,21 @@ Decentralized application manages instructions to transfer securities between me
 
 - Clone Nsd Commercial Paper delivery packages from github:  
 ```bash
-git clone --recursive https://github.com/Altoros/NSD
-cd NSD
-cp -Rf nsd-commercial-paper/. fabric-starter/ 
-cd fabric-starter/
+git clone --recursive https://github.com/noilpa/nsd-commercial-paper
+cd nsd-commercial-paper
 export PATH=$PATH:.
 ./prerequisites-deployment.sh
-cd ..
 ```
 
+In case nsd use master branch, 
+```bash
+git checkout master
+```
+
+in another - remote_node branch
+```bash
+git checkout remote_node
+```
 
 On other Linux distros make sure these versions or higher are installed:  
 
@@ -88,7 +94,6 @@ it then will be exposed by http interface on port `8080` to be accessible by the
 
 1.	Sberbank:  
 ```bash
-	cd fabric-starter
 	source ./env-org-sberbank
 	./org-generate-crypto.sh
 ```
@@ -96,7 +101,6 @@ it then will be exposed by http interface on port `8080` to be accessible by the
 2.	Mts:
 
 ```bash
-	cd fabric-starter
 	source ./env-org-mts
 	./org-generate-crypto.sh
 ```
@@ -117,7 +121,6 @@ After that the main org (NSD) starts the blockchain network, adds the members on
 
 3.	Nsd:  
 ```bash
-	cd nsd-commercial-paper
 	source ./env-org-nsd
 	./main-start-node.sh
 	./main-register-new-org.sh $ORG2 $IP2
